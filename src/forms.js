@@ -18,11 +18,17 @@ const handleFillCountry = _.debounce((ev) => {
   }, 300);
 
 //
+
 function validateName(event) {
     const name = event.target.value
     console.log('validate name: ' + name);
 
-    return false
+    if (!name || name.length < 8) {
+        showElementWithClassName(event.target, 'invalid-feedback')
+        return false;
+    }else{
+        showElementWithClassName(event.target, 'valid-feedback')
+    }
 }
 
 function validatePassword(event) {
@@ -32,13 +38,38 @@ function validatePassword(event) {
     // should contains at least one number
     // otherwise, password is invalid
     const password = event.target.value
-    return false
+    let Mayusculas = "QWERTYUIOPÑLKJHGFDSAZXCVBNM"
+    console.log('validate password: ' + password);
+    if (!password && password.length < 8) {
+        showElementWithClassName(event.target, 'invalid-feedback')
+        return false
+    }else{
+        showElementWithClassName(event.target, 'valid-feedback')
+    }
+    for (let i = 0; i < password.length; i++) {
+
+        for (let j = 0; i < password.length; i++) {
+           
+            if (password[i]) == Mayusculas{
+                
+            }
+
+        }
+        
+    }
 }
 
-function validateEmail(event) {
-    const email = event.target.value
+function validateName(event) {
+    const name = event.target.value;
+    console.log('validate name: ' + name);
 
-    return false
+    if (!name || name.length < 8 || !name.includes('@')) {
+        showElementWithClassName(event.target, 'invalid-feedback');
+        return false;
+    } else {
+        showElementWithClassName(event.target, 'valid-feedback');
+        return true;
+    }
 }
 
 
